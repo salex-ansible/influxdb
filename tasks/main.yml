@@ -1,7 +1,13 @@
 ---
-- name: Install InfluxDB from deb package from the internet.
+- name: Download file
+  get_url:
+    url: '{{ influx_deb_url }}'
+    dest: ~/influxdb.deb
+    force_basic_auth: yes
+
+- name: Install InfluxDB from deb package
   apt:
-    deb: '{{ influx_deb_url }}'
+    deb: ~/influxdb.deb
     state: present
   become: yes
 

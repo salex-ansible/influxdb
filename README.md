@@ -50,7 +50,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: alekseenkoss77.influxdb }
+         - { role: salex-ansible.influxdb }
 
 License
 -------
