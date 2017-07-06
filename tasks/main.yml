@@ -1,0 +1,22 @@
+---
+- name: Install InfluxDB from deb package from the internet.
+  apt:
+    deb: '{{ influx_deb_url }}'
+    state: present
+  become: yes
+
+- name: Copy influxdb.conf
+  template:
+    src: templates/influxdb.conf.j2
+    dest: /etc/influxdb/influxdb.conf
+    owner: root
+    group: root
+  notify:
+    - restart influxdb
+  become: yes
+
+- name: Create DB
+  shell: |
+    influxdb -execute 'CREATE USER {{ influx.admin_username }} WITH PASSWORD {{ admin_password }} WITH ALL PRIVILEGES'
+    influxdb -execute 'CREATE DATABASE {{ influx.database_name }}'
+  become: yes
