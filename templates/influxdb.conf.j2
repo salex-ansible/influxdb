@@ -157,9 +157,9 @@ reporting-disabled = false
 
 [admin]
   {% if influx.admin_enabled %}
-    enabled = true
+  enabled = true
   {% else %}
-    enabled = false
+  enabled = false
   {% endif %}
   auth-enabled = {{ influx.admin_auth }}
   bind-address = "{{ influx.admin_address }}"
@@ -175,9 +175,9 @@ reporting-disabled = false
 
 [http]
   {% if influx.http_enabled %}
-    enabled = true
+  enabled = true
   {% else %}
-    enabled = false
+  enabled = false
   {% endif %}
   bind-address = "{{ influx.http_address }}"
   auth-enabled = true
@@ -300,9 +300,9 @@ reporting-disabled = false
 
 [[udp]]
   {% if influx.udp_enabled %}
-    enabled = true
+  enabled = true
   {% else %}
-    enabled = false
+  enabled = false
   {% endif %}
   bind-address = "{{ influx.udp_port }}"
   database = "{{ influx.database_name }}"

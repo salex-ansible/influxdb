@@ -4,6 +4,7 @@
     url: '{{ influx_deb_url }}'
     dest: ~/influxdb.deb
     force_basic_auth: yes
+    validate_certs: no
 
 - name: Install InfluxDB from deb package
   apt:
@@ -23,6 +24,6 @@
 
 - name: Create DB
   shell: |
-    influxdb -execute 'CREATE USER {{ influx.admin_username }} WITH PASSWORD {{ admin_password }} WITH ALL PRIVILEGES'
-    influxdb -execute 'CREATE DATABASE {{ influx.database_name }}'
+    influx -execute 'CREATE USER {{ influx.admin_username }} WITH PASSWORD {{ influx.admin_password }} WITH ALL PRIVILEGES'
+    influx -execute 'CREATE DATABASE {{ influx.database_name }}'
   become: yes

@@ -1,5 +1,5 @@
 ---
-influx_deb_url: 'https://dl.influxdata.com/influxdb/releases/influxdb_1.2.4_amd64.deb'
+influx_deb_url: https://dl.influxdata.com/influxdb/releases/influxdb_1.2.4_amd64.deb
 
 influx:
   retention_enabled: true
